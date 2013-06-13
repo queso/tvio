@@ -1,0 +1,33 @@
+<head>
+  <title>tvio</title>
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        {{> nav}}
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {{renderPage}}
+  </div>
+</body>
+
+<template name="nav">
+    <a class="brand" href="#">TV.io</a>
+    <div class="btn-group">
+      <button class="btn btn-small">{{deviceName}}</button>
+      <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      {{> devices}}
+    </div>
+    <ul class="nav pull-right">
+      {{#each categories}}
+      <li><a href="/category/{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </section>
+</template>

@@ -1,0 +1,52 @@
+<template name="category">
+<div class="row-fluid">
+  <div class="span12">
+    {{#if isEpisodic}}
+      {{#each episodicGroups}}
+        {{> episodicGroup}}
+      {{/each}}
+    {{else}}
+      {{#each mediaFiles}}
+        {{> mediaFile}}
+      {{/each}}
+    {{/if}}
+  </div>
+</div>
+
+</template>
+
+<template name="mediaFile">
+  <h3 class="media-file" data-media-file-id="{{_id}}">{{name}}</h3>
+</template>
+
+<template name="episodicGroup">
+  <div class="span4">
+    <h3 class="episodic" data-name="{{this}}">{{this}}</h3>
+    <table class="table table-condensed episode-list">
+      <thead>
+        <th></th>
+        <th>Season</th>
+        <th>Episode</th>
+        <th>Progress</th>
+      </thead>
+      {{#each episodicGroupMediaFiles this}}
+        {{> episodicGroupMediaFile}}
+      {{/each}}
+    </table>
+  </div>
+</template>
+
+<template name="episodicGroupMediaFile">
+  <tr class='media-file'>
+    <td><i class="icon-play button" data-media-file-id='{{_id}}'></i></td>
+    <td>{{season}}</td>
+    <td>{{episode}}</td>
+    <td>
+      {{#if viewed}}
+        <div class="progress progress-striped {{progressClass}}" style="margin-bottom: 0px;">
+          <div class="bar" style="width: {{viewed_percentage}}%"></div>
+        </div>
+      {{/if}}
+    </td>
+  </tr>
+</template>

@@ -1,0 +1,1 @@
+Airplay = Npm.require('airplay');

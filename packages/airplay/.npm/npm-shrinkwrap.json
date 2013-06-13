@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "airplay": {
+      "version": "0.0.3",
+      "dependencies": {
+        "plist": {
+          "version": "0.4.3",
+          "dependencies": {
+            "xmlbuilder": {
+              "version": "0.4.2"
+            },
+            "xmldom": {
+              "version": "0.1.16"
+            }
+          }
+        },
+        "mdns": {
+          "version": "1.1.0"
+        }
+      }
+    }
+  }
+}
