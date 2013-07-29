@@ -10,6 +10,7 @@ Meteor.methods
     content = "http://10.0.1.201:81/#{encodeURI(mediaFile['path'])}"
     console.log("CONTENT: #{content}")
     ap_device.play content, 0
+    this.unblock()
     monitorPlay(ap_device, mediaFile)
 
 monitorPlay = (device, mediaFile) ->
