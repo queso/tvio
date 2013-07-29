@@ -29,15 +29,13 @@ Template.episodicGroup.helpers
 Template.episodicGroupMediaFile.helpers
   
   icon: ->
-    mediaFile = MediaFiles.find({_id: this._id})
-    if mediaFile.state == "playing"
+    if this.state == "playing"
       "pause"
     else
       "play"
 
   progressClass: ->
-    mediaFile = MediaFiles.find({_id: this._id})
-    if mediaFile.state == "playing"
+    if this.state == "playing"
       "active"
 
   viewed: ->
