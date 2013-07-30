@@ -6,7 +6,7 @@ scanCategories = ->
   Categories.find().forEach (category) ->
     parents = fs.readdirSync("#{basepath}/public/media~/#{category.folder}")
     clean_parents = _.reject parents, (f) ->
-      f == ".DS_Store"
+      f == ".DS_Store" || f == ".AppleDouble"
     clean_parents.forEach (parent) ->
       scanMediaFiles(category, parent)
 
@@ -14,7 +14,7 @@ scanMediaFiles = (category, parent_folder) ->
   scanPath = "#{basepath}/public/media~/#{category.folder}/#{parent_folder}"
   files = fs.readdirSync(scanPath)
   clean_files = _.reject files, (f) ->
-    f == ".DS_Store"
+    f == ".DS_Store" || f == ".AppleDouble"
   clean_files.forEach (file) ->
     insertOrUpdateMediaFile(file, category, parent_folder)
 
