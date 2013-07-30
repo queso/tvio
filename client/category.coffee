@@ -13,13 +13,21 @@ Template.category.helpers
 
 
 Template.category.events
-  'click .media-file i.button': (e) ->
+  'click .media-file i': ->
     deviceId = Session.get('currentDeviceId')
-    mediaFileId = e.target.dataset['mediaFileId']
-    console.log("calling play with mediaFileId: #{mediaFileId}")
-    Meteor.call('play', mediaFileId, deviceId)
+    Meteor.call('play', this._id, deviceId)
 
-  'click .episodic': (e) ->
+Template.mediaFile.helpers
+  icon: ->
+    if this.state == "playing"
+      "pause"
+    else
+      "play"
+
+Template.episodicGroup.events
+  'click h3.episodic': ->
+    $(event.target).siblings('table').first().toggleClass('hide')
+
 
 Template.episodicGroup.helpers
   

@@ -16,13 +16,13 @@
 </template>
 
 <template name="mediaFile">
-<h3 class="media-file" data-media-file-id="{{_id}}"><i class="icon-play button" data-media-file-id='{{_id}}'></i>{{name}}</h3>
+<h3 class="media-file"><button><i class="icon-{{icon}}"></i></button>{{name}}</h3>
 </template>
 
 <template name="episodicGroup">
   <div class="span4">
     <h3 class="episodic" data-name="{{this}}">{{this}}</h3>
-    <table class="table table-condensed episode-list">
+    <table class="table table-condensed episode-list hide">
       <thead>
         <th></th>
         <th>Season</th>
@@ -38,7 +38,7 @@
 
 <template name="episodicGroupMediaFile">
   <tr class='media-file'>
-    <td><i class="icon-play button" data-media-file-id='{{_id}}'></i></td>
+    <td><button><i class="icon-{{icon}}"></i></button></td>
     <td>{{season}}</td>
     <td>{{episode}}</td>
     <td>
