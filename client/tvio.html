@@ -4,19 +4,17 @@
 
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        {{> nav}}
-      </div>
+    <div class="container">
+      {{> nav}}
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     {{renderPage}}
   </div>
 </body>
 
 <template name="nav">
-    <a class="brand" href="#">TV.io</a>
+    <a class="navbar-brand" href="#">TV.io</a>
     <div class="btn-group">
       <button class="btn btn-small">{{deviceName}}</button>
       <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
@@ -24,7 +22,7 @@
       </button>
       {{> devices}}
     </div>
-    <ul class="nav pull-right">
+    <ul class="nav navbar-nav pull-right">
       {{#each categories}}
       <li><a href="/category/{{_id}}">{{name}}</a></li>
       {{/each}}
