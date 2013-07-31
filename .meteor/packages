@@ -7,5 +7,5 @@ preserve-inputs
 coffeescript
 router
 http
-bootstrap
 insecure
+font-awesome
