@@ -6,3 +6,9 @@ Meteor.publish 'categories', ->
 
 Meteor.publish 'devices', ->
   Devices.find()
+
+Meteor.publish 'meta_data', ->
+  MetaData.find()
+
+Meteor.publish 'settings', ->
+  Settings.find()

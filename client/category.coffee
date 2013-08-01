@@ -17,25 +17,34 @@ Template.category.events
     deviceId = Session.get('currentDeviceId')
     Meteor.call('play', this._id, deviceId)
 
+  'click .close-pageslide': ->
+    event.preventDefault()
+    $(event.target).parents('.pageslide').removeClass('active-pageslide')
+
   'click .pageslide-link': ->
     event.preventDefault()
     $("##{this._id}").toggleClass('active-pageslide')
 
 Template.mediaFile.helpers
-  icon:
+  icon: ->
     if this.state == "playing"
       "pause"
     else
       "play"
 
-Template.episodicGroup.events
-  'click h3.episodic': ->
-    $(event.target).siblings('table').first().toggleClass('hide')
+  image: ->
+    data = MetaData.findOne({name: this.name})
+    data.image
 
+Template.episodicGroup.events
   'click .pageslide-link': ->
     event.preventDefault()
     name = this.split(" ").join("-").toLowerCase()
     $("##{name}").toggleClass('active-pageslide')
+
+  'click .edit-metadata': ->
+    $(event.target).parents('.pageslide').find('.metaDataForm').toggleClass('showMetaDataForm')
+    $(event.target).parents('.pageslide').find('.metaDataForm').css('visibility: hidden;')
 
 Template.episodicGroup.helpers
   
@@ -44,6 +53,10 @@ Template.episodicGroup.helpers
 
   className: (name) ->
     name.split(" ").join("-").toLowerCase()
+
+  image: (name) ->
+    data = MetaData.findOne({name: name})
+    data.image
 
 Template.episodicGroupMediaFile.helpers
   

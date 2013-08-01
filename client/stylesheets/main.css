@@ -5,7 +5,7 @@ body {
 .pageslide {
   z-index: 1500;
   position: fixed;
-  right: -26%;
+  right: -43%;
   top: 0px;
   height: 100%;
   background-color: #222;
@@ -16,6 +16,47 @@ body {
   transition: all 0.8s ease-in-out;
 }
 
+.metaDataForm {
+  overflow: hidden;
+  height: 0px;
+  -webkit-transition: all 0.8s ease-in-out;
+  -moz-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.showMetaDataForm {
+  height: auto;
+}
+
 .active-pageslide {
   right: 0;
+}
+
+.close-pageslide {
+  color: #bababa;
+  font-size: 1.5em;
+}
+
+.close-pageslide:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.poster {
+  height: 300px;
+  margin: 30px auto 0px;
+  display: block;
+}
+
+.table .media-file td {
+  line-height: 35px;
+}
+
+.pageslide th {
+  text-align: center;
+}
+
+.media-file .progress {
+  margin-top: 5px;
+  height: 25px;
 }

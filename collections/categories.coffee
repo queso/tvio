@@ -1,5 +1,4 @@
-root = exports ? this
-root.Categories = new Meteor.Collection('categories')
+@Categories = new Meteor.Collection('categories')
 
 if Meteor.isServer and Categories.find().count() is 0
   categories = [

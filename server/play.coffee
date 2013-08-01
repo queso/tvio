@@ -7,7 +7,8 @@ Meteor.methods
     mediaFile = MediaFiles.findOne({_id: mediaFileId})
     ap_device = _.find DeviceList, (d) ->
       d['info_']['host'] == device['host']
-    content = "http://10.0.1.201:81/#{encodeURI(mediaFile['path'])}"
+    webServer = Settings.findOne().webServer
+    content = "#{webServer}/#{encodeURI(mediaFile['path'])}"
     console.log("CONTENT: #{content}")
     ap_device.play content, 0
     this.unblock()

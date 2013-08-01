@@ -1,0 +1,17 @@
+<template name='settings'>
+<div class="col-10">
+<h3>App Settings</h3>
+
+<form id="appSettings" class="form-horizontal">
+
+  <div class="form-group">
+    <label class="control-label col-2" for="webServer">Web Server</label>
+    <div class="col-7">
+      <input type="text" class="form-control" id="webServer" value="{{webServer}}" placeholder="http://10.0.0.1">
+      <button class="btn" style="margin-top: 10px;" type="submit">Save settings</button>
+    </div>
+  </div>
+
+</form>
+</div>
+</template>

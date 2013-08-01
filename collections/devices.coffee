@@ -1,2 +1,1 @@
-root = exports ? this
-root.Devices = new Meteor.Collection('devices')
+@Devices = new Meteor.Collection('devices')

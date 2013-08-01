@@ -1,6 +1,8 @@
 Meteor.subscribe('media_files')
 Meteor.subscribe('devices')
 Meteor.subscribe('categories')
+Meteor.subscribe('meta_data')
+Meteor.subscribe('settings')
 
 Template.nav.helpers
   categories: ->

@@ -15,20 +15,23 @@
 
 <template name="mediaFile">
 <div class="col-6 col-lg-3">
-  <a href="#" class="pageslide-link"><img src="http://cdn5.nflximg.net/images/1755/2521755.jpg" /></a>
+  <a href="#" class="pageslide-link"><img src="{{image}}" class="poster" /></a>
 </div>
-<div id="{{_id}}" class="col-3 pageslide">
-  <h3 class="media-file">{{name}}</h3>
-  <button class="play-button btn"><i class="icon-{{icon}}"></i></button>
+<div id="{{_id}}" class="col-5 pageslide">
+  <a href="#" class="close-pageslide pull-left"><i class="icon-remove-circle"></i></a>
+  <h3 class="media-file">{{name}}<i class='icon-edit edit-metadata'></i></h3>
+  <button class="play-button btn btn-small"><i class="icon-{{icon}}"></i></button>
 </div>
 </template>
 
 <template name="episodicGroup">
   <div class="col-6 col-lg-3">
-    <a href="#" class="pageslide-link"><img src="http://cdn5.nflximg.net/images/1755/2521755.jpg" /></a>
+    <a href="#" class="pageslide-link"><img src="{{image this}}" class="poster" /></a>
   </div>
-  <div id="{{className this}}" class="col-3 pageslide">
-    <h3 class="episodic" data-name="{{this}}">{{this}}</h3>
+  <div id="{{className this}}" class="col-5 pageslide">
+    <a href="#" class="close-pageslide pull-left"><i class="icon-remove-circle"></i></a>
+    <h3 class="episodic" data-name="{{this}}">{{this}} <i class='icon-edit edit-metadata'></i></h3>
+    {{> metaData}}
     <table class="table table-condensed episode-list">
       <thead>
         <th></th>
@@ -45,15 +48,21 @@
 
 <template name="episodicGroupMediaFile">
   <tr class='media-file'>
-    <td><button class="play-button btn"><i class="icon-{{icon}}"></i></button></td>
+    <td><button class="play-button btn btn-small"><i class="icon-{{icon}}"></i></button></td>
     <td>{{season}}</td>
     <td>{{episode}}</td>
     <td>
       {{#if viewed}}
-        <div class="progress progress-striped {{progressClass}}" style="margin-bottom: 0px;">
-          <div class="bar" style="width: {{viewed_percentage}}%"></div>
-        </div>
+        {{> progressBar}}
       {{/if}}
     </td>
   </tr>
+</template>
+
+<template name="progressBar">
+{{#isolate}}
+<div class="progress progress-striped {{progressClass}}" style="margin-bottom: 0px;">
+  <div class="progress-bar" style="width: {{viewed_percentage}}%"></div>
+</div>
+{{/isolate}}
 </template>
