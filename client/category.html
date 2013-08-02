@@ -19,7 +19,7 @@
 </div>
 <div id="{{_id}}" class="col-5 pageslide">
   <a href="#" class="close-pageslide pull-left"><i class="icon-remove-circle"></i></a>
-  <h3 class="media-file">{{name}}<i class='icon-edit edit-metadata'></i></h3>
+  <h3 class="media-file">{{name}}<i class='pull-right icon-edit edit-metadata'></i></h3>
   <button class="play-button btn btn-small"><i class="icon-{{icon}}"></i></button>
 </div>
 </template>
@@ -30,7 +30,7 @@
   </div>
   <div id="{{className this}}" class="col-5 pageslide">
     <a href="#" class="close-pageslide pull-left"><i class="icon-remove-circle"></i></a>
-    <h3 class="episodic" data-name="{{this}}">{{this}} <i class='icon-edit edit-metadata'></i></h3>
+    <h3 class="episodic" data-name="{{this}}">{{this}} <i class='pull-right icon-edit edit-metadata'></i></h3>
     {{> metaData}}
     <table class="table table-condensed episode-list">
       <thead>

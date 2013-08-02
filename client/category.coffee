@@ -34,7 +34,7 @@ Template.mediaFile.helpers
 
   image: ->
     data = MetaData.findOne({name: this.name})
-    data.image
+    data.image if data
 
 Template.episodicGroup.events
   'click .pageslide-link': ->

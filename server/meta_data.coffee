@@ -14,10 +14,12 @@ checkForMetaData = ->
 fetchMetaData = (name) ->
   results = Meteor.http.get('http://www.omdbapi.com/', {params: {t: name, r: 'JSON'}})
   content = JSON.parse(results['content'])
-  doc = {name: name, image: content['Poster'], genres: content['Genre'].split(", ")}
+  image = content['Poster']
+  genres = content['Genre'].split(", ") if content['Genre']
+  doc = {name: name, image: image, genres: genres}
   MetaData.insert(doc)
 
 Meteor.startup ->
   console.log('Starting metadata scanning')
-  Meteor.setInterval(checkForMetaData, 2000)
+  Meteor.setInterval(checkForMetaData, 5000)
 
