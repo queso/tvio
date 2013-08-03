@@ -9,7 +9,7 @@ Meteor.methods
     content = JSON.parse(results['content'])
     image = downloadImage(content['Poster'], name)
     doc = {name: name, image: image, genres: content['Genre'].split(", ")}
-    MetaData.update(data._id, {$set: doc}) 
+    MetaData.update(data._id, {$set: doc})
 
 checkForMetaData = ->
   MediaFiles.find().forEach (mediaFile) ->
@@ -26,7 +26,7 @@ fetchMetaData = (name) ->
   MetaData.insert(doc)
 
 downloadImage = (url, name) ->
-  console.log "Handling image download"
+  console.log "Handling image download for #{name}: #{url}"
   fut = new Future()
   request.get {url: url, encoding: null}, (error, result, body) ->
     if error then return console.error error
