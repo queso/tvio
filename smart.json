@@ -2,6 +2,6 @@
   "packages": {
     "font-awesome": {},
     "router": {},
-    "foundation": {}
+    "minimongoid": {}
   }
 }
