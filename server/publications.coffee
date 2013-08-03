@@ -1,11 +1,11 @@
 Meteor.publish 'media_files', ->
-  MediaFiles.find()
+  MediaFiles.find({}, {sort: [['name', 'ascending']]})
 
 Meteor.publish 'categories', ->
-  Categories.find()
+  Categories.find({}, {sort: [['folder', 'ascending']]})
 
 Meteor.publish 'devices', ->
-  Devices.find()
+  Devices.find({}, {sort: [['name', 'ascending']]})
 
 Meteor.publish 'meta_data', ->
   MetaData.find()

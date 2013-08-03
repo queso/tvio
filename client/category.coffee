@@ -49,7 +49,7 @@ Template.episodicGroup.events
 Template.episodicGroup.helpers
   
   episodicGroupMediaFiles: (name) ->
-    MediaFiles.find({name: name})
+    MediaFiles.find({name: name}, {sort: [['season', 'ascending'], ['episode', 'ascending']]})
 
   className: (name) ->
     name.split(" ").join("-").toLowerCase()
