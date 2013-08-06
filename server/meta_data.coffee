@@ -19,12 +19,14 @@ checkForMetaData = ->
 fetchMetaData = (mediaFile) ->
   name = mediaFile.name
   categoryName = Categories.findOne(_id: mediaFile.categoryId).folder
-  results = Meteor.http.get('http://www.omdbapi.com/', {params: {t: name, r: 'JSON'}})
+  results = Meteor.http.get('http://www.omdbapi.com/', {params: {t: name, r: 'JSON', tomatoes: true}})
   content = JSON.parse(results['content'])
   url = content['Poster']
-  image = downloadImage(url, name, categoryName)
+  image = downloadImage(url, name, categoryName) if url
   genres = content['Genre'].split(", ") if content['Genre']
-  doc = {name: name, image: image, genres: genres }
+  tomatoMeter = content['tomatoMeter']
+  tomatoImage = content['tomatoImage']
+  doc = {name: name, image: image, genres: genres, tomatoMeter: tomatoMeter, tomatoImage: tomatoImage}
   MetaData.insert(doc)
 
 downloadImage = (url, name, category) ->
