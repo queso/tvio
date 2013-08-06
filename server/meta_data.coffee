@@ -5,9 +5,11 @@ request = Npm.require('request')
 Meteor.methods
   updateMetaData: (imdbId, name) ->
     data = MetaData.findOne({name: name})
+    mediaFile = MediaFiles.findOne({name: name})
+    categoryName = Categories.findOne({_id: mediaFile.categoryId}).folder
     results = Meteor.http.get('http://www.omdbapi.com/', {params: {i: imdbId, r: 'JSON'}})
     content = JSON.parse(results['content'])
-    image = downloadImage(content['Poster'], name)
+    image = downloadImage(content['Poster'], name, categoryName)
     doc = {name: name, image: image, genres: content['Genre'].split(", ")}
     MetaData.update(data._id, {$set: doc})
 
