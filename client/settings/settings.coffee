@@ -11,5 +11,6 @@ Template.settings.events
 
 Template.settings.helpers
   webServer: ->
-    Settings.findOne().webServer
+    settings = Settings.findOne()
+    settings.webServer if settings
 

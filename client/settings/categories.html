@@ -1,0 +1,28 @@
+<template name="categories">
+<div class="col-4">
+  <h3>Categories</h3>
+  <ul class="list-group">
+    {{#each categories}}
+      <li class="list-group-item">{{name}}</li>
+    {{/each}}
+  </ul>
+
+
+  <form id="categories" class="form-horizontal">
+
+    <div class="form-group">
+      <label class="control-label col-2" for="name">Name</label>
+      <div class="col-7">
+        <input type="text" class="form-control" id="name" placeholder="TV Shows">
+      </div>
+      <div class="clearfix"></div>
+      <label class="control-label col-2" for="folder">Folder</label>
+      <div class="col-7">
+        <input type="text" class="form-control" id="folder" placeholder="tv-shows">
+        <button class="btn" style="margin-top: 10px;" type="submit">Add category</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+</template>
