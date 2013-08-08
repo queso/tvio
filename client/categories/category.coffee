@@ -56,7 +56,7 @@ Template.episodicGroup.helpers
 
   image: (name) ->
     data = MetaData.findOne({name: name})
-    data.image
+    data.image if data
 
 Template.episodicGroupMediaFile.helpers
   
